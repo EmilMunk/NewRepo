@@ -48,8 +48,9 @@ end
 reboot 'app_requires_reboot' do
   action :request_reboot
   reason 'Need to cancel reboot when the run completes successfully.'
+  ignore_failure true
 end
-raise
-return
+return 
+
 
 
