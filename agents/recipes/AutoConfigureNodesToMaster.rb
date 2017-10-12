@@ -50,5 +50,5 @@ reboot 'app_requires_reboot' do
   reason 'Need to cancel reboot when the run completes successfully.'
 end
 
-Chef::Application.fatal!("Didn't expect the Spanish Inquistion", 42)
+return
 
