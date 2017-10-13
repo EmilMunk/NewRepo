@@ -25,8 +25,9 @@ node.override['git']['checksum'] = 'c3897e078cd7f7f496b0e4ab736ce144c64696d3dbee
 node.override['git']['display_name'] = "Git version #{node['git']['version']}"
 # Install git
 include_recipe 'git::default'
+
 log 'message' do
-  message 'git_client::defualt:install done.'
+  message 'git_client::defualt:install'
   level :info
 end
 
