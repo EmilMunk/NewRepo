@@ -44,13 +44,5 @@ powershell_script 'ExecuteTaskScheduler' do
 end
 
 
-# Reboot after all is installed. 
-reboot 'app_requires_reboot' do
-  action :request_reboot
-  reason 'Need to cancel reboot when the run completes successfully.'
-  ignore_failure true
-end
-return 
-
 
 
