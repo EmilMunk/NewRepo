@@ -32,15 +32,20 @@ file 'C:\runJenkinsAgentSetup.bat' do
   group 'Administrators'
 end
 
-cookbook_file 'C:\RegisterScheduledTask.ps1' do
-  source 'RegisterScheduledTask.ps1'
+cookbook_file 'C:\nssm.exe' do
+  source 'nssm.exe'
+  mode '0755'
   owner 'Administrator'
   group 'Administrators'
-  mode '0755'
+  action :create
 end
 
-powershell_script 'ExecuteTaskScheduler' do
-  code '. C:\RegisterScheduledTask.ps1'
+powershell_script 'ExecuteServiceInstall' do
+  code 'C:\nssm install JenkinsAgent C:\runJenkinsAgentSetup.bat'
+end
+
+powershell_script 'ExecuteServiceInstall' do
+  code 'C:\nssm start JenkinsAgent'
 end
 
 
