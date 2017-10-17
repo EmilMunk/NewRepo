@@ -351,6 +351,11 @@ batch 'run-script' do
   action :run
 end
 
+powershell_script 'SetNugetHome' do
+  code '[Environment]::SetEnvironmentVariable("NUGET_HOME", "C:\Users\Administrator\.gradle\caches\nuget\3.3.0", "Machine")'
+end
+
+
 # Reboot after all is installed. 
 reboot 'app_requires_reboot' do
   action :request_reboot
